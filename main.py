@@ -3,7 +3,6 @@ from collections import namedtuple
 import logging
 import sys
 
-# Создание именованного кортежа для хранения информации о файлах/каталогах
 FileInfo = namedtuple('FileInfo', ['name', 'extension', 'is_dir', 'parent_dir'])
 
 class DirectoryScanner:
@@ -21,7 +20,7 @@ class DirectoryScanner:
                 for file in files:
                     file_path = os.path.join(root, file)
                     name, extension = os.path.splitext(file)
-                    extension = extension[1:]  # Удаление точки в расширении
+                    extension = extension[1:]
                     parent_dir = os.path.dirname(file_path)
                     file_info = FileInfo(name, extension, False, parent_dir)
                     self.file_info_list.append(file_info)
